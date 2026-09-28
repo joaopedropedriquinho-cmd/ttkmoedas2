@@ -31,7 +31,7 @@ export default function OrderDialog({ order, onClose, onToast }) {
         <button className="dialog-close" onClick={onClose} ref={closeRef} aria-label="Fechar pedido">×</button>
         <div className="order-success-icon" aria-hidden="true">✓</div>
         <span className="eyebrow">REGISTRO LOCAL</span>
-        <h2 id="order-dialog-title">Pedido criado!</h2>
+        <h2 id="order-dialog-title">Pedido enviado</h2>
         <p className="dialog-intro">Anote o número para acompanhar com o suporte.</p>
         <div className="order-id-box"><span>Número do pedido</span><b>{order.id}</b></div>
         <div className="order-profile">
