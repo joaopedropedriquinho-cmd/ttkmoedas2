@@ -60,7 +60,7 @@ export function generateOrderId(existingOrders = getOrders()) {
   return id;
 }
 
-export function createOrder({ username, coins, priceCents, paymentMethod = 'Pix' }) {
+export function createOrder({ username, avatarUrl, coins, priceCents, paymentMethod = 'Pix' }) {
   const normalizedUsername = String(username ?? '').trim().replace(/^@+/, '');
   if (!/^[a-zA-Z0-9._]{2,24}$/.test(normalizedUsername)) {
     throw new Error('O nome de usuário não está em um formato válido.');
@@ -74,9 +74,22 @@ export function createOrder({ username, coins, priceCents, paymentMethod = 'Pix'
     throw new Error('O estoque disponível não é suficiente para esse pacote.');
   }
 
+  let normalizedAvatarUrl = '';
+  if (typeof avatarUrl === 'string' && avatarUrl.trim()) {
+    try {
+      const parsedAvatarUrl = new URL(avatarUrl.trim());
+      if (parsedAvatarUrl.protocol === 'https:' || parsedAvatarUrl.protocol === 'http:') {
+        normalizedAvatarUrl = parsedAvatarUrl.href;
+      }
+    } catch {
+      normalizedAvatarUrl = '';
+    }
+  }
+
   const order = {
     id: generateOrderId(state.orders),
     username: normalizedUsername,
+    ...(normalizedAvatarUrl ? { avatarUrl: normalizedAvatarUrl } : {}),
     coins,
     price: priceCents / 100,
     paymentMethod,

@@ -187,6 +187,97 @@ h1, h2, h3, p { margin-top: 0; }
 .toast.error { border-color: #f0d3d8; color: #963647; }
 .toast.error > span { background: #fff0f2; color: #bf3d54; }
 
+.order-profile { display: flex; align-items: center; gap: 12px; margin: 12px 0; padding: 11px 12px; border: 1px solid #f0e5e6; border-radius: 11px; background: #fffdfd; }
+.profile-avatar { display: grid; width: 48px; height: 48px; flex: 0 0 48px; overflow: hidden; place-items: center; border: 2px solid #f5d9de; border-radius: 50%; background: #fff0f2; color: var(--rose-dark); font: 800 18px 'Manrope', sans-serif; }
+.profile-avatar img { width: 100%; height: 100%; border-radius: inherit; object-fit: cover; }
+.order-profile > div:last-child { display: flex; min-width: 0; flex-direction: column; gap: 3px; }
+.order-profile b { overflow-wrap: anywhere; color: #44373d; font-size: 12px; }
+.order-profile small { color: #94868a; font-size: 10px; }
+.order-dialog { max-height: calc(100svh - 24px); overflow-y: auto; overscroll-behavior: contain; }
+
+@media (min-width: 761px) {
+  .home-app { height: 100dvh; min-height: 0; }
+  .home-app > #recharge.content-shell { width: min(1120px, calc(100% - 40px)); min-height: 0; margin: clamp(10px, 2vh, 22px) auto; display: flex; flex-direction: column; justify-content: center; }
+  #recharge .recharge-card { width: 100%; padding: clamp(18px, 2.6vh, 28px) clamp(22px, 2.6vw, 34px); }
+  .checkout-layout { display: grid; grid-template-columns: minmax(0, 1.22fr) minmax(270px, .88fr); align-items: start; gap: clamp(20px, 2.2vw, 30px); }
+  .checkout-main, .checkout-aside { min-width: 0; }
+  .form-heading { margin-bottom: clamp(12px, 2vh, 21px); }
+  .rose-info { margin: 12px 0 20px; }
+  .summary-section, .payment-section { margin-top: 0; }
+  .payment-section { margin-top: 16px; }
+  .form-error { margin: 10px 0 -8px; }
+  .submit-button { margin-top: 14px; }
+  .manual-note { margin-top: 8px; }
+  .intro-strip { margin-bottom: 12px; }
+}
+
+@media (min-width: 761px) {
+  .header-inner { min-height: clamp(62px, 7.2vh, 78px); }
+  .footer-inner { min-height: clamp(66px, 8vh, 86px); }
+  .home-app > #recharge.content-shell { margin-top: clamp(6px, 1vh, 18px); margin-bottom: clamp(6px, 1vh, 18px); }
+  #recharge .recharge-card { padding-top: clamp(13px, 1.7vh, 23px); padding-bottom: clamp(13px, 1.7vh, 23px); }
+  .form-heading { margin-bottom: clamp(8px, 1.3vh, 16px); }
+  .form-heading h1 { margin-top: 2px; font-size: clamp(23px, 2.5vh, 28px); }
+  .form-heading p { font-size: clamp(10px, 1.25vh, 12px); }
+  .heading-stamp { width: clamp(36px, 4.7vh, 45px); height: clamp(36px, 4.7vh, 45px); flex-basis: clamp(36px, 4.7vh, 45px); font-size: clamp(21px, 2.8vh, 26px); }
+  .username-section label, .summary-section h3, .payment-section h3, .section-title-row h2 { margin-bottom: 6px; }
+  .username-control { height: 42px; }
+  .username-feedback { min-height: 14px; }
+  .field-hint { font-size: 9px; }
+  .rose-info { min-height: clamp(46px, 6vh, 58px); margin: clamp(7px, 1vh, 12px) 0 clamp(9px, 1.5vh, 18px); padding: 5px 10px; }
+  .rose-icon { width: 30px; height: 30px; }
+  .coupon-line { margin-top: 9px; padding-top: 6px; padding-bottom: 6px; }
+  .savings-copy { margin: 7px 0; line-height: 1.35; }
+  .package-card { min-height: clamp(72px, 9.5vh, 92px); padding: 7px 9px; }
+  .package-coin { width: 21px; height: 21px; }
+  .package-amount { margin-top: 4px; font-size: 13px; }
+  .package-price { margin-top: 1px; font-size: 12px; }
+  .summary-box { padding: 8px 12px; }
+  .summary-box > div { padding: 3px 0; }
+  .summary-box .summary-total { margin-top: 3px; padding-top: 6px; }
+  .payment-section { margin-top: 10px; }
+  .payment-card { min-height: clamp(50px, 6.5vh, 61px); padding: 7px 10px; }
+  .payment-note { margin-top: 4px; font-size: 8px; }
+  .submit-button { min-height: clamp(42px, 5.5vh, 48px); margin-top: 10px; }
+  .intro-strip { padding: 8px 12px; }
+  .intro-mark { width: 29px; height: 29px; flex-basis: 29px; }
+}
+
+@media (max-width: 760px) {
+  .checkout-layout { display: flex; flex-direction: column; gap: 0; }
+  .checkout-main, .checkout-aside { width: 100%; }
+}
+
+@media (max-width: 590px) {
+  .header-inner { width: calc(100% - 30px); max-width: calc(100vw - 30px); min-width: 0; gap: 8px; }
+  .brand { min-width: 0; flex: 0 1 auto; gap: 7px; }
+  .brand-name { white-space: nowrap; }
+  .balance-chip { min-width: 0; max-width: 45%; flex: 0 1 auto; gap: 6px; margin-left: auto; }
+  .balance-copy { min-width: 0; }
+  .menu-toggle { min-width: 31px; flex: 0 0 31px; margin-left: 0; }
+}
+
+@media (max-width: 760px) and (max-height: 760px) {
+  .home-app { min-height: 100svh; }
+  .home-app > #recharge.content-shell { margin-top: 10px; margin-bottom: 16px; }
+  #recharge .recharge-card { padding-top: 17px; padding-bottom: 15px; }
+  .form-heading { margin-bottom: 14px; }
+  .form-heading h1 { font-size: 23px; }
+  .rose-info { min-height: 48px; margin-top: 9px; margin-bottom: 16px; }
+  .package-grid { gap: 7px; }
+  .package-card { min-height: 91px; }
+  .summary-section { margin-top: 17px; }
+  .payment-section { margin-top: 15px; }
+}
+
+@media (max-width: 360px) {
+  .header-inner { width: calc(100% - 20px); max-width: calc(100vw - 20px); }
+  .balance-chip { max-width: 43%; }
+  .recharge-card { padding-right: 14px; padding-left: 14px; }
+  .package-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .package-card { min-height: 78px; }
+}
+
 @keyframes badge-in { from { opacity: 0; transform: translateY(4px) scale(.94); } to { opacity: 1; transform: translateY(0) scale(1); } }
 @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
 @keyframes dialog-in { from { opacity: 0; transform: translateY(10px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }

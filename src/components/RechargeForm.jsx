@@ -97,6 +97,8 @@ export default function RechargeForm({ onCreateOrder }) {
         <span className="heading-stamp" aria-hidden="true">¢</span>
       </div>
 
+      <div className="checkout-layout">
+        <div className="checkout-main">
       <section className="username-section" aria-labelledby="username-label">
         <label id="username-label" htmlFor="username">Nome de usuário do TikTok</label>
         <div className={`username-control ${usernameError ? 'has-error' : ''} ${verifiedUsername ? 'is-valid' : ''}`}>
@@ -120,12 +122,17 @@ export default function RechargeForm({ onCreateOrder }) {
         <CoinPackages selected={selected} onSelect={(item) => { setSelected(item); setFormError(''); }} />
       </section>
 
+        </div>
+        <div className="checkout-aside">
+
       <OrderSummary username={verifiedUsername} selected={selected} />
       <PaymentMethod />
 
       {formError && <p className="form-error" role="alert">{formError}</p>}
       <button className="submit-button" type="submit"><span>Recarregar</span><span aria-hidden="true">→</span></button>
       <p className="manual-note"><span aria-hidden="true">i</span> Pedido local, com processamento manual. Nenhuma recarga é automática.</p>
+        </div>
+      </div>
     </form>
   );
 }

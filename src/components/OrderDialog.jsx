@@ -4,6 +4,7 @@ import { formatCoins, formatPrice } from '../lib/store.js';
 export default function OrderDialog({ order, onClose, onToast }) {
   const closeRef = useRef(null);
   const [copyLabel, setCopyLabel] = useState('Copiar número do pedido');
+  const [avatarUnavailable, setAvatarUnavailable] = useState(false);
 
   useEffect(() => {
     closeRef.current?.focus();
@@ -33,8 +34,13 @@ export default function OrderDialog({ order, onClose, onToast }) {
         <h2 id="order-dialog-title">Pedido criado!</h2>
         <p className="dialog-intro">Anote o número para acompanhar com o suporte.</p>
         <div className="order-id-box"><span>Número do pedido</span><b>{order.id}</b></div>
+        <div className="order-profile">
+          <div className="profile-avatar" aria-hidden="true">
+            {order.avatarUrl && !avatarUnavailable ? <img src={order.avatarUrl} alt="" onError={() => setAvatarUnavailable(true)} /> : <span>{order.username?.charAt(0).toUpperCase() || '?'}</span>}
+          </div>
+          <div><b>@{order.username}</b><small>Usuário do pedido</small></div>
+        </div>
         <div className="dialog-details">
-          <div><span>Usuário</span><b>@{order.username}</b></div>
           <div><span>Moedas</span><b>{formatCoins(order.coins)}</b></div>
           <div><span>Total</span><b>{formatPrice(Math.round(order.price * 100))}</b></div>
           <div><span>Pagamento</span><b>{order.paymentMethod}</b></div>

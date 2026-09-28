@@ -50,7 +50,7 @@ export default function App() {
   }
 
   return (
-    <div className="app-shell">
+    <div className={`app-shell ${page === 'home' ? 'home-app' : ''}`}>
       <Header balance={balance} page={page} onNavigate={navigate} />
       {page === 'home' ? (
         <main className="content-shell" id="recharge">
